@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddLaporanAkhirToUsersTable extends Migration
+class AddAlamatToPerusahaansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddLaporanAkhirToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('laporan_akhir');
+        Schema::table('perusahaans', function (Blueprint $table) {
+            $table->string('alamat');
         });
     }
 
@@ -25,8 +25,8 @@ class AddLaporanAkhirToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            Schema::dropIfExists('laporan_akhir');
+        Schema::table('perusahaans', function (Blueprint $table) {
+            $table->dropColumn('alamat');
         });
     }
 }

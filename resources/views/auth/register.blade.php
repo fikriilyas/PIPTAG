@@ -7,7 +7,7 @@
             @csrf
             <div class="mb-4">
                 <label for="name" class="sr-only">Name</label>
-                <input type="text" class="bg-gray-100 border-3 w-full p-4 rounded-lg @error('name') border-red-500 @enderror" placeholder="Your name" id="name" name="name" value="{{old('name')}}">
+                <input type="text" class="bg-gray-100 border-3 w-full p-4 rounded-lg" placeholder="Your name" id="name" name="name" value="{{old('name')}}">
                 @error('name')
                     <div class="text-red-500 mt-2 text-sm">
                         {{$message}}
@@ -16,7 +16,7 @@
             </div>
             <div class="mb-4">
                 <label for="email" class="sr-only">Email</label>
-                <input type="text" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('email') border-red-500 @enderror" placeholder="Email" id="email" name="email" value="{{old('email')}}">
+                <input type="text" class="bg-gray-100 border-2 w-full p-4 rounded-lg" placeholder="Email" id="email" name="email" value="{{old('email')}}">
                 @error('email')
                     <div class="text-red-500 mt-2 text-sm">
                         {{$message}}
@@ -25,8 +25,22 @@
             </div>
             <div class="mb-4">
                 <label for="username" class="sr-only">Username</label>
-                <input type="text" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('username') border-red-500 @enderror" placeholder="Username" id="username" name="username" value="{{old('username')}}">
+                <input type="text" class="bg-gray-100 border-2 w-full p-4 rounded-lg" placeholder="Username" id="username" name="username" value="{{old('username')}}">
                 @error('username')
+                    <div class="text-red-500 mt-2 text-sm">
+                        {{$message}}
+                    </div>
+                @enderror
+            </div>
+            <div class="mb-4">
+                <label for="role" class="sr-only">Role</label>
+                <select name="role" id="role" class="bg-gray-100 border-2 w-full p-4 rounded-lg">
+                    <option value="">Role</option>
+                    <option value="mahasiswa">Mahasiswa</option>
+                    <option value="pembimbing">Pembimbing PI</option>
+                    <option value="koordinator">Koordinator PI</option>
+                </select>
+                @error('role')
                     <div class="text-red-500 mt-2 text-sm">
                         {{$message}}
                     </div>

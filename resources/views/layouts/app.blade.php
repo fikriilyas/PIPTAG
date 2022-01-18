@@ -14,10 +14,10 @@
                 <a href="/" class="p-3">Home</a>
             </li>
             <li>
-                <a href="{{route('dashboard')}}" class="p-3">Dashboard</a>
+                <a href="/" class="p-3">Dashboard</a>
             </li>
             <li>
-                <a href="{{route('posts')}}" class="p-3">Post</a>
+                <a href="{{route('jurnal', auth()->user()->username)}}" class="p-3">Jurnal</a>
             </li>
         </ul>
         <ul class="flex items-center">

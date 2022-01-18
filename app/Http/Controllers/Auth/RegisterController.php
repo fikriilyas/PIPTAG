@@ -25,6 +25,7 @@ class RegisterController extends Controller
             'name' =>'required|max:225',
             'username' => 'required|max:255',
             'email' => 'required|email|max:255',
+            'role'=> 'required',
             'password' => 'required|confirmed'
         ]);
         //store user
@@ -32,11 +33,12 @@ class RegisterController extends Controller
             'name'=>$request->name,
             'username'=>$request->username,
             'email'=>$request->email,
+            'role'=>$request->role,
             'password'=>Hash::make($request->password)
         ]);
         //Sign the user in
         auth()->attempt($request->only('email','password'));
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard.mahasiswa');
         //redirect
     }
 }

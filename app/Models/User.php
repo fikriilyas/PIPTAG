@@ -18,6 +18,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'laporan_akhir',
+        'role',
         'name',
         'email',
         'password',
@@ -43,13 +45,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function posts()
+    public function jurnals()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Jurnal::class);
     }
-
-    public function likes()
+    
+    public function hasRole(string $role): bool
     {
-        return $this->hasMany(Like::class);
+        return $this->getAttribute('role') === $role;
     }
 }
