@@ -12,11 +12,17 @@ class Perusahaan extends Model
     protected $fillable = [
         'nama',
         'deskripsi',
-        'alamat'
+        'alamat',
+        'user_id'
     ];
 
     public function register()
     {
         return $this->hasMany(Pendaftaran::class);
+    }
+
+    public function mhs()
+    {
+        return $this->belongsTo(User::class);
     }
 }

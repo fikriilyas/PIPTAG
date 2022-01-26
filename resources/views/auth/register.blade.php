@@ -24,9 +24,18 @@
                 @enderror
             </div>
             <div class="mb-4">
-                <label for="username" class="sr-only">Username</label>
-                <input type="text" class="bg-gray-100 border-2 w-full p-4 rounded-lg" placeholder="Username" id="username" name="username" value="{{old('username')}}">
-                @error('username')
+                <label for="nim" class="sr-only">NIM</label>
+                <input type="text" class="bg-gray-100 border-2 w-full p-4 rounded-lg" placeholder="NIM" id="nim" name="nim" value="{{old('nim')}}">
+                @error('nim')
+                    <div class="text-red-500 mt-2 text-sm">
+                        {{$message}}
+                    </div>
+                @enderror
+            </div>
+            <div class="mb-4">
+                <label for="angkatan" class="sr-only">angkatan</label>
+                <input type="text" class="bg-gray-100 border-2 w-full p-4 rounded-lg" placeholder="Angkatan (Contoh: 2018)" id="angkatan" name="angkatan" value="{{old('angkatan')}}">
+                @error('angkatan')
                     <div class="text-red-500 mt-2 text-sm">
                         {{$message}}
                     </div>
@@ -46,6 +55,22 @@
                     </div>
                 @enderror
             </div>
+
+            <div class="mb-4">
+                <label for="pembimbing" class="sr-only">Pembimbing</label>
+                <select name="pembimbing" id="role" class="bg-gray-100 border-2 w-full p-4 rounded-lg">
+                    <option value="">Pembimbing</option>
+                    @foreach ($pembimbings as $pembimbing)
+                        <option value="{{$pembimbing->id}}">{{$pembimbing->name}}</option>
+                    @endforeach
+                </select>
+                @error('pembimbing')
+                    <div class="text-red-500 mt-2 text-sm">
+                        {{$message}}
+                    </div>
+                @enderror
+            </div>
+
             <div class="mb-4">
                 <label for="password" class="sr-only">Password</label>
                 <input type="password" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('password') border-red-500 @enderror" placeholder="Password" id="password" name="password" value="">

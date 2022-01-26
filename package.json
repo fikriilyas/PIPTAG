@@ -16,5 +16,9 @@
         "lodash": "^4.17.19",
         "postcss": "^8.4.5",
         "tailwindcss": "^3.0.13"
+    },
+    "dependencies": {
+        "daisyui": "^1.24.3",
+        "tw-elements": "^1.0.0-alpha8"
     }
 }

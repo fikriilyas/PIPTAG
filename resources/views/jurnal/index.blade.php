@@ -19,7 +19,7 @@
                         <label for="jurnal" class="sr-only">Jurnal</label>
                         <textarea name="jurnal" id="jurnal" cols="30" rows="4" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('body') border-red-500 @enderror" placeholder="Jurnal Harian"></textarea>
 
-                        @error('body')
+                        @error('jurnal')
                             <div class="text-red-500 mt-2 text-sm">
                                 {{ $message }}
                             </div>
@@ -35,7 +35,7 @@
             @if ($jurnals->count())
                 @foreach ($jurnals as $jurnal)
                     <div class='mb-4'>
-                        <a href="" class="font-bold">{{$jurnal->user->name}}</a> <span class="text-gray-600 text-sm">{{$jurnal->created_at->diffForHumans()}}</span>
+                        <a href="" class="font-bold">{{$jurnal->user->name}}</a> <span class="text-gray-600 text-sm">Hari ke: {{$jurnal->day}}</span>
                         <p class="mb-2">{{$jurnal->jurnal}}</p>
                         <div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Perusahaan;
 use Illuminate\Http\Request;
 
@@ -20,5 +21,11 @@ class PerusahaanController extends Controller
         $perusahaan->register()->create([
             'user_id' => $request->user()->id,
         ]);
+
+        $flight = User::find($request->user()->id);
+        $flight->state = 1;
+        $flight->save();
+
+        return back();
     }
 }

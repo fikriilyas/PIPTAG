@@ -15,9 +15,12 @@ class TambahPerusahaanController extends Controller
     public function store(Request $request)
     {
         Perusahaan::create([
+            'user_id'=>$request->user()->id,
             'nama'=>$request->nama,
             'deskripsi'=>$request->deskripsi,
             'alamat'=>$request->alamat
         ]);
+
+        return redirect('daftarperusahaan');
     }
 }

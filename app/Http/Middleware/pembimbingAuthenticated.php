@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
-class mahasiswaAuthenticated
+class pembimbingAuthenticated
 {
     /**
      * Handle an incoming request.

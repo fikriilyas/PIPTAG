@@ -23,7 +23,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'username'
+        'pembimbing',
+        'nim',
+        'angkatan'
     ];
 
     /**
@@ -49,9 +51,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(Jurnal::class);
     }
+
+    public function pendaftaran()
+    {
+        return $this->hasOne(Pendaftaran::class,'user_id');
+    }
     
     public function hasRole(string $role): bool
     {
         return $this->getAttribute('role') === $role;
+    }
+
+    public function hasLaporan(string $role): bool
+    {
+        return $this->getAttribute('laporan_url');
     }
 }

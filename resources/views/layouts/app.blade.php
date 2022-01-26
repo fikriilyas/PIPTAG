@@ -13,17 +13,35 @@
             <li>
                 <a href="/" class="p-3">Home</a>
             </li>
+            @auth
             <li>
-                <a href="/" class="p-3">Dashboard</a>
+                <a href="
+                @if((auth()->user()->role) == 'mahasiswa')
+                        {{route('dashboard.mahasiswa')}}
+                    @elseif((auth()->user()->role) == 'pembimbing')
+                        {{route('dashboard.pembimbing')}}
+                    @elseif((auth()->user()->role) == 'koordinator')
+                        {{route('dashboard.koordinator')}}
+                    @endif
+                " class="p-3">Dashboard</a>
+            </li>
+            @if((auth()->user()->role) == 'mahasiswa')
+            <li>
+                <a href="{{route('daftar.perusahaan')}}" class="p-3">Daftar</a>
             </li>
             <li>
-                <a href="{{route('jurnal', auth()->user()->username)}}" class="p-3">Jurnal</a>
+                <a href="{{route('jurnal')}}" class="p-3">Jurnal</a>
             </li>
+            <li>
+                <a href="{{route('laporan')}}" class="p-3">Laporan</a>
+            </li>
+            @endif
+            @endauth
         </ul>
         <ul class="flex items-center">
             @auth
             <li>
-                <a href="" class="p-3">{{auth()->user()->name}}</a>
+                {{auth()->user()->name}}
             </li>
             <li>
                 <form action="{{route('logout')}}" method="post" class="inline p-3">

@@ -25,5 +25,7 @@ class DaftarPraktikIndustriController extends Controller
         $perusahaan->register()->create([
             'user_id' => $request->user()->id,
         ]);
+
+        return redirect('dashboard.mahasiswa');
     }
 }
