@@ -45,7 +45,6 @@ class RegisterController extends Controller
         //store user
         User::create([
             'name'=>$request->name,
-            'username'=>$request->username,
             'nim'=>$request->nim,
             'email'=>$request->email,
             'angkatan'=>$request->angkatan,
